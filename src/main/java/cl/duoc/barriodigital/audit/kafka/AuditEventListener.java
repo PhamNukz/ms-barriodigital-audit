@@ -30,6 +30,7 @@ public class AuditEventListener {
         }
         repo.save(new EventoAuditoria(
                 evento.eventId(), evento.tramiteId(), evento.usuario(),
-                evento.estadoAnterior(), evento.estadoNuevo(), evento.timestamp()));
+                evento.estadoAnterior(), evento.estadoNuevo(), evento.timestamp(),
+                evento.vecinoUsername(), evento.tipoId(), evento.nota()));
     }
 }

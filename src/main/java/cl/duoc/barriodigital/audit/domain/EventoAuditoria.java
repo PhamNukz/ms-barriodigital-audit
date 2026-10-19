@@ -29,6 +29,17 @@ public class EventoAuditoria {
     @Column(name = "event_timestamp", nullable = false)
     private Instant timestamp;
 
+    /** Vecino dueno del tramite. Null en los eventos guardados antes de V2. */
+    @Column(name = "vecino_username", length = 150)
+    private String vecinoUsername;
+
+    @Column(name = "tipo_id")
+    private Long tipoId;
+
+    /** Nota del funcionario, o "Ingresado por X a nombre de Y". */
+    @Column(length = 500)
+    private String nota;
+
     protected EventoAuditoria() {
     }
 
@@ -42,6 +53,14 @@ public class EventoAuditoria {
         this.timestamp = timestamp;
     }
 
+    public EventoAuditoria(String eventId, Long tramiteId, String usuario, String estadoAnterior,
+                           String estadoNuevo, Instant timestamp, String vecinoUsername, Long tipoId, String nota) {
+        this(eventId, tramiteId, usuario, estadoAnterior, estadoNuevo, timestamp);
+        this.vecinoUsername = vecinoUsername;
+        this.tipoId = tipoId;
+        this.nota = nota;
+    }
+
     public Long getId() { return id; }
     public String getEventId() { return eventId; }
     public Long getTramiteId() { return tramiteId; }
@@ -49,4 +68,7 @@ public class EventoAuditoria {
     public String getEstadoAnterior() { return estadoAnterior; }
     public String getEstadoNuevo() { return estadoNuevo; }
     public Instant getTimestamp() { return timestamp; }
+    public String getVecinoUsername() { return vecinoUsername; }
+    public Long getTipoId() { return tipoId; }
+    public String getNota() { return nota; }
 }
