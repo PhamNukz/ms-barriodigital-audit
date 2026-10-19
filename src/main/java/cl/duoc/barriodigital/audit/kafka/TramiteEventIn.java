@@ -12,5 +12,11 @@ public record TramiteEventIn(
         String vecinoUsername,
         String estadoAnterior,
         String estadoNuevo,
-        String usuario) {
+        String usuario,
+        String nota) {
+
+    public TramiteEventIn(String eventId, Instant timestamp, String traceId, Long tramiteId, Long tipoId,
+                          String vecinoUsername, String estadoAnterior, String estadoNuevo, String usuario) {
+        this(eventId, timestamp, traceId, tramiteId, tipoId, vecinoUsername, estadoAnterior, estadoNuevo, usuario, null);
+    }
 }

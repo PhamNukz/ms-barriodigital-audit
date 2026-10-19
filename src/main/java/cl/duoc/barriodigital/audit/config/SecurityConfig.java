@@ -19,7 +19,8 @@ public class SecurityConfig {
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/actuator/health").permitAll()
-                .requestMatchers("/audit/**").hasAnyRole("Admin", "Auditor")
+                // Funcionario: revisa el historial de un vecino al atenderlo (cuando lo ingreso, quien lo gestiono).
+                .requestMatchers("/audit/**").hasAnyRole("Admin", "Auditor", "Funcionario")
                 .anyRequest().authenticated())
             .oauth2ResourceServer(oauth -> oauth
                 .jwt(jwt -> jwt.jwtAuthenticationConverter(converter)));

@@ -11,11 +11,13 @@ public final class AuditDtos {
 
     public record Response(
             Long id, Long tramiteId, String usuario,
-            String estadoAnterior, String estadoNuevo, Instant timestamp) {
+            String estadoAnterior, String estadoNuevo, Instant timestamp,
+            String vecinoUsername, Long tipoId, String nota) {
 
         public static Response from(EventoAuditoria e) {
             return new Response(e.getId(), e.getTramiteId(), e.getUsuario(),
-                    e.getEstadoAnterior(), e.getEstadoNuevo(), e.getTimestamp());
+                    e.getEstadoAnterior(), e.getEstadoNuevo(), e.getTimestamp(),
+                    e.getVecinoUsername(), e.getTipoId(), e.getNota());
         }
     }
 }
