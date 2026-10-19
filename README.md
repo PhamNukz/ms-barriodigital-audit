@@ -41,3 +41,9 @@ docker run -p 8083:8083 --env-file .env ms-barriodigital-audit
 
 Imagen publicada automáticamente en cada push a `main`:
 `ghcr.io/phamnukz/ms-barriodigital-audit:latest`.
+
+## Matriz de funcionalidades
+
+El estado de cumplimiento de la Prueba 2 (EP3/EP4), con la matriz de funcionalidades y la evidencia de cada
+componente, está en [Cumplimiento-Prueba2.md](https://github.com/PhamNukz/barriodigital-docs/blob/main/Cumplimiento-Prueba2.md)
+(repo `barriodigital-docs`).
